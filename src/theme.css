@@ -1,0 +1,143 @@
+/* FONT IMPORT */
+/* All fonts from fonts.google.com */
+
+.noto-serif-jp-standard {
+    font-family: "Noto Serif JP", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+.noto-serif-jp-bold {
+    font-family: "Noto Serif JP", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+  
+.noto-serif-jp-extrabold {
+    font-family: "Noto Serif JP", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+}
+  
+.noto-serif-jp-light {
+    font-family: "Noto Serif JP", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+  
+.noto-serif-jp-italic {
+    font-family: "Noto Serif JP", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: italic;
+}
+
+
+/* THEME TH TH  TH  TH  TH  TH  TH  TH  TH  TH  TH  TH  TH  TH  TH   */
+
+:root {
+    /* Color Pallette */
+    --background-color: #0D1321;
+    --background-color-lighter: #17223A;
+    --background-color-darker: #06080F;
+
+    --accent-color-neutral: #B2BCAA;
+    --accent-color-neutral-lighter: #D6DBD1;
+    --accent-color-neutral-darker: #98A58D;
+
+    --accent-color-cool: #0B7A75;
+    --accent-color-cool-lighter: #10A8A0;
+    --accent-color-cool-darker: #074B47;
+
+    --accent-color-warm: #FF1B1C;
+    --accent-color-warm-lighter: #FF4747;
+    --accent-color-warm-darker: #E00000;
+
+    --accent-color-alternate: #FFCBDD;
+    --accent-color-alternate-lighter: #FFEBF2;
+    --accent-color-alternate-darker: #FF99BD;
+
+    /* Color Default Settings */
+    --background-darkmode-color: var(--background-color);
+    --font-darkmode-color: var(--accent-color-neutral);
+    --background-lightmode-color: var(--accent-color-alternate-lighter);
+    --font-lightmode-color: var(--background-color);
+
+    /* Padding options */
+    --padding-tiny: 1vw;
+    --padding-extrasmall: 2.5vw;
+    --padding-small: 5vw;
+    --padding-medium: 10vw;
+    --padding-large: 15vw;
+    --padding-extralarge: 20vw;
+    --padding-huge: 25vw;
+
+    /* Margin options */
+    --margin-tiny: 1vw;
+    --margin-extrasmall: 2.5vw;
+    --margin-small: 5vw;
+    --margin-medium: 10vw;
+    --margin-large: 15vw;
+    --margin-extralarge: 20vw;
+    --margin-huge: 25vw;
+}
+  
+body {
+    /* Font and color declarations */
+    background-color: var(--background-darkmode-color, midnightblue);
+}
+
+h1, h2, h3, h4, h5, a, p, input {
+    /* Font and color declarations */
+    font-family: "Noto Serif JP", serif;
+    color: var(--font-darkmode-color, beige);
+
+    /* CBPM */
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    /* Font and color declarations */
+    color: var(--font-alternative-color, white);
+}
+
+button {
+    /* Font and color declarations */
+    font-family: "Noto Serif JP", serif;
+}
+
+
+
+
+
+/* CONTENT CONTAINERS ---------------------------------------------*/
+.container {
+    height: 25vh;
+    
+}
+
+/* Size variations ----------------------------*/
+.full-width {
+    display: block;
+    width: 100vw;
+}
+
+.partial-width {
+    display: flex;
+    justify-self: center;
+}
+
+/* Border variations --------------------------*/
+.border-2px-full-accent-lighter {
+    border: 2px solid var(--accent-color-neutral-lighter);
+}
+
+/* Margin variations -------------------------*/
+.margin-sidesonly-medium {
+    margin: 0px var(--margin-medium);
+}
