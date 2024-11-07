@@ -1,14 +1,22 @@
 // Entry point JavaScript
 
 // IMPORTS ------------------------------------------------------------
+// CSS
 import "./css-reset.css";
 import "./theme.css";
 import "./style.css";
+
+// JavaScript
 import {createDivElement,
     createTextElement,
     createButtonElement,
     createImageElement
 } from "./helper-modules.js";
+import {Project} from "./projects.js";
+import {} from "./tasks.js";
+
+// Webpack | date-fns
+import { constructNow, isSameDay } from "date-fns";
 
 
 
@@ -21,11 +29,20 @@ function createPage() {
     // NOTE: This function is arranged in DOM tree hierarchy, for 
     // readability
 
-        console.log("pikopiko-repo-template successfully loaded.");
+    // Create Sidebar
 
+    // Create primary content container
 };
 
 createPage();
+const newProject = new Project("Test1");
+newProject.getProjectDetails();
+console.log(newProject.createdDate);
+
+newProject.description = "Test description";
+newProject.notes = "Some test notes";
+newProject.dueDate = Date();
+newProject.getProjectDetails();
 
 
 // O R I G I N A L   W R I T E - U P
@@ -118,7 +135,17 @@ createPage();
     {
         // index.js
         {
+            // Sidebar
+            {
+                // PROPERTIES
+                // - Current Location
+                // - 
 
+                // METHODS
+                // - 
+            };
+
+            // Footer
         };
 
         // helper-modules.js
