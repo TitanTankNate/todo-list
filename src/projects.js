@@ -7,6 +7,7 @@ class Project {
 
     // Public properties
     name;
+    id;
     description;
     lastUpdatedDate;
     dueDate;
@@ -16,9 +17,12 @@ class Project {
     taskObjectsArray = [];
 
     // Constructor
-    constructor(name) {
+    constructor(name, id) {
         // Name
         this.name = name;
+
+        // ID
+        this.id = id;
 
         // Created Date
         // This date is set upon instantiation of the class object and 
@@ -37,6 +41,10 @@ class Project {
     // Methods
     getProjectDetails() {
         console.log(JSON.stringify(this, null, 4));
+    };
+
+    createJSONString() {
+        return JSON.stringify(this, null, 4);
     };
 };
 

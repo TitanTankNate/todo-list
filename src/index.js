@@ -12,7 +12,8 @@ import {createDivElement,
     createButtonElement,
     createImageElement
 } from "./helper-modules.js";
-import {Project} from "./projects.js";
+import { Application } from "./app.js";
+import { Project } from "./projects.js";
 import {} from "./tasks.js";
 
 // Webpack | date-fns
@@ -35,14 +36,18 @@ function createPage() {
 };
 
 createPage();
-const newProject = new Project("Test1");
-newProject.getProjectDetails();
-console.log(newProject.createdDate);
 
-newProject.description = "Test description";
-newProject.notes = "Some test notes";
-newProject.dueDate = Date();
-newProject.getProjectDetails();
+// Create new web app instance
+const newAppInstance = new Application();
+newAppInstance.checkForStorageAvailable();
+newAppInstance.createProject("Dog");
+newAppInstance.createProject("Cat");
+newAppInstance.createProject("Bird");
+newAppInstance.createProject("Fish");
+
+
+
+
 
 
 // O R I G I N A L   W R I T E - U P

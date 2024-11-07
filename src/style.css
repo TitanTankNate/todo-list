@@ -1,0 +1,47 @@
+/* OVERALL GRID LAYOUT */
+body {
+    display: grid;
+    grid-template-rows: repeat(10, 1fr);
+
+    height: 100vh;
+    width: 100vw;
+}
+
+header {
+    grid-row: 1 / 2;
+
+    border: 2px solid red;
+}
+
+#content-generic {
+    grid-row: 2 / -2;
+
+    border: 2px solid green;
+}
+
+footer {
+    grid-row: -2 / -1;
+
+    border: 2px solid blue;
+}
+
+
+
+
+/* CONTENT LAYOUT    CL  CL  CL  CL  CL  CL  CL  CL  CL  CL  CL  CL   */
+#content-generic {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.sidebar-dynamic {
+    grid-column: 1 / 2;
+
+    border: 2px solid cyan;
+}
+
+.content-dynamic {
+    grid-column: 2 / -1;
+
+    border: 2px solid yellow;
+}
