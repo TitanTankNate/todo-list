@@ -101,9 +101,10 @@ h1, h2, h3, h4, h5, a, p, li, input {
     margin: 0;
 }
 
-a {
+a:hover {
     /* Font and color declarations */
     color: var(--font-alternative-color, white);
+    cursor: pointer;
 }
 
 button {

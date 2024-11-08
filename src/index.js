@@ -21,24 +21,69 @@ import { constructNow, isSameDay } from "date-fns";
 
 
 
+// Event listeners
+function addEventListeners() {
+    const navLinks = document.getElementById("header-generic")
+    navLinks.addEventListener("click", (event) => {
+        console.log(event.target.id);
+        createPage(newAppInstance, event.target.id);
+    });
+};
 
-// FUNCTION:    createDynamicDOM()
+
+
+
+
+
+// FUNCTION:    createPage()
 // DESCRIPTION: This function lays out the dynamic DOM tree, with the 
 // intent that this function will be called when the page/tab loads or 
 // is reset/refresh.
-function createPage() {
-    // NOTE: This function is arranged in DOM tree hierarchy, for 
-    // readability
+function createPage(applicationInstance, triggerEventID) {
+    switch (triggerEventID) {
+        case "dashboard-link-0":
+            if (newAppInstance.currentTab !== "dashboard") {
+                // Clear content
+                applicationInstance.clearContentDOM("sidebar");
+                applicationInstance.clearContentDOM("content");
 
-    // Create Sidebar
+                // Paint new content
+                applicationInstance.updateContentDOM("sidebar");
+                newAppInstance.currentTab = "dashboard";
+            };
+            break;
+        case "projects-link-0":
+            if (newAppInstance.currentTab !== "projects") {
+                // Clear content
+                applicationInstance.clearContentDOM("sidebar");
+                applicationInstance.clearContentDOM("content");
 
-    // Create primary content container
+                // Paint new content
+                applicationInstance.updateContentDOM("sidebar");
+                applicationInstance.updateContentDOM("content");
+                newAppInstance.currentTab = "projects";    
+            };
+            break;
+        case "tasks-link-0":
+            if (newAppInstance.currentTab !== "tasks") {
+                // Clear content
+                applicationInstance.clearContentDOM("sidebar");
+                applicationInstance.clearContentDOM("content");
+                newAppInstance.currentTab = "tasks";
+            }
+            break;
+    };
 };
 
-createPage();
+
+
+
+
 
 // Create new web app instance
+addEventListeners();
 const newAppInstance = new Application();
+
 newAppInstance.checkForStorageAvailable();
 newAppInstance.createProject("Dog");
 newAppInstance.createProject("Cat");
@@ -51,9 +96,7 @@ newAppInstance.createProject("Xongli");
 newAppInstance.createProject("Gamer");
 newAppInstance.createProject("Conservacuck");
 
-newAppInstance.updateContentDOM("sidebar");
-newAppInstance.updateContentDOM("content");
-
+createPage(newAppInstance,"dashboard-link-0");
 
 
 

@@ -15,15 +15,19 @@ import {createDivElement,
 
 // Classes
 class Application {
-    constructor() {
-        console.log("Initializing web app.");
-    };
-
     // Private properties
     #projectsArray = [];
     #currentIdToAssign = 0;
 
     // Public properties
+    currentTab;
+
+    // Constructor
+    constructor() {
+        console.log("Initializing web app.");
+        this.currentTab = null;
+    };
+
 
     // Getters
     get projectsArray() { return this.#projectsArray};
@@ -106,20 +110,37 @@ class Application {
             createDivElement(["content-card-container", "project-card"],`project-card-${objectToImport.id}`, parentElement);
                 // Header container
                 // Title, created date, and text description
-                // DEPRECATED createDivElement(["content-project-header-container"],`content-project-header-container-${objectToImport.id}`,`#project-card-${objectToImport.id}`);
                 createTextElement("h3",["content-header-h3", "content-project-header"],`content-project-title-${objectToImport.id}`,`${objectToImport.name}`,`#project-card-${objectToImport.id}`);
-                // DEPRECATED createTextElement("p", ["content-project-date-p", "created-date"], `content-project-createdDate-${objectToImport.id}`,`${objectToImport.createdDate}`,`#project-card-${objectToImport.id}`);
                 createTextElement("p", ["content-project-date-p", "due-date"], `content-project-dueDate-${objectToImport.id}`,`${objectToImport.dueDate}`,`#project-card-${objectToImport.id}`);
                 createTextElement("p",["content-project-description-p"],`content-project-description-${objectToImport.id}`,`${objectToImport.description}`,`#project-card-${objectToImport.id}`);
                 createButtonElement(["content-project-details-button"],`content-project-details-button-${objectToImport.id}`,"Show More",`#project-card-${objectToImport.id}`);  
                 
-                // DEPRECATED Dates container
-                // DEPRECATED createDivElement(["content-project-dates-container"], `content-project-dates-container-${objectToImport.id}`, `#project-card-${objectToImport.id}`);
-                
                 // Task list
                 createListElement(["content-project-tasklist-ul"],`content-project-tasklist-${objectToImport.id}`,"ul",objectToImport.taskObjectsArray,`#project-card-${objectToImport.id}`);
-        }
+        
+                // Quick action button container and child buttons
+                createDivElement(["content-project-button-container"],`content-project-button-container-${objectToImport.id}`,`#project-card-${objectToImport.id}`);
+                    createButtonElement(["content-quickaction-button", "quickaction-addtask"],`content-addtask-button-${objectToImport.id}`,`AT`,`#content-project-button-container-${objectToImport.id}`);
+                    createButtonElement(["content-quickaction-button", "quickaction-open"],`content-open-button-${objectToImport.id}`,`OP`,`#content-project-button-container-${objectToImport.id}`);
+                    createButtonElement(["content-quickaction-button", "quickaction-delete"],`content-delete-button-${objectToImport.id}`,`DEL`,`#content-project-button-container-${objectToImport.id}`);
 
+        };
+    };
+
+    clearContentDOM(elementToUpdate) {
+        let parentToRemove;
+        // Select parent element
+        switch (elementToUpdate) {
+            case "sidebar":
+                // replaceChildren()
+                parentToRemove = document.getElementById("sidebar-dynamic");
+                parentToRemove.replaceChildren();
+                break;
+            case "content":
+                parentToRemove = document.getElementById("content-dynamic");
+                parentToRemove.replaceChildren();
+                break;
+        };
     };
 }
 

@@ -29,7 +29,24 @@ footer {
 
 
 
-/* CONTENT LAYOUT    CL  CL  CL  CL  CL  CL  CL  CL  CL  CL  CL  CL   */
+/* HEADER STYLE HS  HS  HS  HS  HS  HS  HS  HS  HS  HS  HS  HS  HS   */
+.header-generic {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-navlinks {
+    align-content: center;
+}
+
+.header-navlinks-ul {
+    display: flex;
+    gap: 12px;
+}
+
+
+
+/* CONTENT LAYOUT    CL  CL  CL  CL  CL  CL  CL  CL  CL  CL  CL  CL  */
 #content-generic {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -91,10 +108,10 @@ footer {
     grid-row: 5 / 6;
 }
 
-.content-project-tasklist-p {
-    grid-row: 6 / 9;
+.content-project-tasklist-ul {
+    grid-row: 6 / 10;
 }
 
 .content-project-button-container {
-    grid-row: 9 / -1;
+    grid-row: 10 / -1;
 }
