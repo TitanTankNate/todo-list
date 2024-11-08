@@ -24,6 +24,9 @@ class Project {
         // ID
         this.id = id;
 
+        // Desscription
+        this.description = "Test description";
+
         // Created Date
         // This date is set upon instantiation of the class object and 
         // cannot be changed later.

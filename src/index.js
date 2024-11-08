@@ -44,6 +44,8 @@ newAppInstance.createProject("Dog");
 newAppInstance.createProject("Cat");
 newAppInstance.createProject("Bird");
 newAppInstance.createProject("Fish");
+newAppInstance.updateContentDOM("sidebar");
+newAppInstance.updateContentDOM("content");
 
 
 
@@ -156,6 +158,16 @@ newAppInstance.createProject("Fish");
         // helper-modules.js
         {
 
+        };
+
+        // app.js
+        {
+            // Application
+            {
+                // PROPERTIES
+
+                // METHODS
+            };
         };
 
         // projects.js
