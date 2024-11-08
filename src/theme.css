@@ -91,7 +91,7 @@ body {
     background-color: var(--background-darkmode-color, midnightblue);
 }
 
-h1, h2, h3, h4, h5, a, p, input {
+h1, h2, h3, h4, h5, a, p, li, input {
     /* Font and color declarations */
     font-family: "Noto Serif JP", serif;
     color: var(--font-darkmode-color, beige);

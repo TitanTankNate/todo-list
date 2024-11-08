@@ -28,6 +28,7 @@ footer {
 
 
 
+
 /* CONTENT LAYOUT    CL  CL  CL  CL  CL  CL  CL  CL  CL  CL  CL  CL   */
 #content-generic {
     display: grid;
@@ -43,5 +44,57 @@ footer {
 .content-dynamic {
     grid-column: 2 / -1;
 
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 350px);
+    grid-auto-rows: 350px;
+    gap: 12px;
+
+    overflow-y: scroll;
+    scrollbar-width: none;
+
     border: 2px solid yellow;
+}
+
+
+
+
+
+/* CONTENT CARD LAYOUT */
+.content-card-container {
+    display: grid;
+    grid-template-rows: repeat(10, 1fr);
+
+
+    border: 2px solid white;
+}
+
+.content-header-h3 {
+    grid-row: 1 / 2;
+}
+
+/* .content-project-date-p .created-date {
+    grid-row: 2 / 3;
+    
+} */
+
+.content-project-date-p .due-date {
+    grid-row: 2 / 3;
+
+}
+
+.content-project-description-p {
+    grid-row: 3 / 5;
+}
+
+.content-project-details-button {
+    grid-row: 5 / 6;
+}
+
+.content-project-tasklist-p {
+    grid-row: 6 / 9;
+}
+
+.content-project-button-container {
+    grid-row: 9 / -1;
 }

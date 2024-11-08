@@ -5,7 +5,8 @@ import { Project } from "./projects.js";
 import {createDivElement,
     createTextElement,
     createButtonElement,
-    createImageElement
+    createImageElement, 
+    createListElement
 } from "./helper-modules.js";
 
 
@@ -73,18 +74,22 @@ class Application {
                 });
                 break;
             case "content":
-                updateContentDOM("#content-dynamic");
+                this.#projectsArray.forEach((object) => {
+                    updateContentDOM(object,"#content-dynamic");
+                });                
                 break;
         };
 
 
         // DOM Update Methods
         function updateSidebarDOM(objectToImport, parentElement) {
+            // NOTE: Might be worth limiting the size of this list 
+            // while ordering by "most recent"
             // Container div
             createDivElement(["sidebar-container"],`sidebar-project-container-${objectToImport.id}`, parentElement);
                 // Text container div and child elements
                 createDivElement(["sidebar-project-text-container"],`sidebar-project-text-container-${objectToImport.id}`,`#sidebar-project-container-${objectToImport.id}`);
-                    createTextElement("h3",["sidebar-title-h3"],`sidebar-project-title-${objectToImport.id}`,`${objectToImport.name}`,`#sidebar-project-text-container-${objectToImport.id}`);
+                    createTextElement("h3",["sidebar-header-h3", "sidebar-project-title"],`sidebar-project-title-${objectToImport.id}`,`${objectToImport.name}`,`#sidebar-project-text-container-${objectToImport.id}`);
                     createTextElement("p",["sidebar-project-description"],`sidebar-project-description-${objectToImport.id}`,`${objectToImport.description}`,`#sidebar-project-text-container-${objectToImport.id}`);
                 
                 // Button container div and child elements
@@ -94,9 +99,25 @@ class Application {
                     createButtonElement(["sidebar-quickaction-button", "quickaction-delete"],`sidebar-delete-button-${objectToImport.id}`,`DEL`,`#sidebar-project-button-container-${objectToImport.id}`);
         };
 
-        function updateContentDOM(parentElement) {
+        function updateContentDOM(objectToImport, parentElement) {
             console.log("updateContentDOM()");
 
+            // Container div
+            createDivElement(["content-card-container", "project-card"],`project-card-${objectToImport.id}`, parentElement);
+                // Header container
+                // Title, created date, and text description
+                // DEPRECATED createDivElement(["content-project-header-container"],`content-project-header-container-${objectToImport.id}`,`#project-card-${objectToImport.id}`);
+                createTextElement("h3",["content-header-h3", "content-project-header"],`content-project-title-${objectToImport.id}`,`${objectToImport.name}`,`#project-card-${objectToImport.id}`);
+                // DEPRECATED createTextElement("p", ["content-project-date-p", "created-date"], `content-project-createdDate-${objectToImport.id}`,`${objectToImport.createdDate}`,`#project-card-${objectToImport.id}`);
+                createTextElement("p", ["content-project-date-p", "due-date"], `content-project-dueDate-${objectToImport.id}`,`${objectToImport.dueDate}`,`#project-card-${objectToImport.id}`);
+                createTextElement("p",["content-project-description-p"],`content-project-description-${objectToImport.id}`,`${objectToImport.description}`,`#project-card-${objectToImport.id}`);
+                createButtonElement(["content-project-details-button"],`content-project-details-button-${objectToImport.id}`,"Show More",`#project-card-${objectToImport.id}`);  
+                
+                // DEPRECATED Dates container
+                // DEPRECATED createDivElement(["content-project-dates-container"], `content-project-dates-container-${objectToImport.id}`, `#project-card-${objectToImport.id}`);
+                
+                // Task list
+                createListElement(["content-project-tasklist-ul"],`content-project-tasklist-${objectToImport.id}`,"ul",objectToImport.taskObjectsArray,`#project-card-${objectToImport.id}`);
         }
 
     };

@@ -44,6 +44,13 @@ newAppInstance.createProject("Dog");
 newAppInstance.createProject("Cat");
 newAppInstance.createProject("Bird");
 newAppInstance.createProject("Fish");
+newAppInstance.createProject("Tiger");
+newAppInstance.createProject("Llama");
+newAppInstance.createProject("Lion");
+newAppInstance.createProject("Xongli");
+newAppInstance.createProject("Gamer");
+newAppInstance.createProject("Conservacuck");
+
 newAppInstance.updateContentDOM("sidebar");
 newAppInstance.updateContentDOM("content");
 

@@ -12,9 +12,10 @@ class Project {
     lastUpdatedDate;
     dueDate;
     status;
+    priority;
     notes;
     customImage;
-    taskObjectsArray = [];
+    taskObjectsArray = ["task1", "task2", "task3"];
 
     // Constructor
     constructor(name, id) {
@@ -24,7 +25,7 @@ class Project {
         // ID
         this.id = id;
 
-        // Desscription
+        // Description
         this.description = "Test description";
 
         // Created Date
@@ -32,8 +33,20 @@ class Project {
         // cannot be changed later.
         this.#createdDate = Date();
 
+        // Due Date
+        this.dueDate = "No Due Date Assigned";
+
         // Last Updated Date
         this.lastUpdatedDate = Date();
+
+        // Status
+        this.status = "Incomplete";
+
+        // Priority
+        this.status = "Normal";
+
+        // Notes
+        this.notes = "No notes yet";
     };    
 
     // Getters
@@ -57,16 +70,16 @@ export {Project};
         {
             // Project
             {
-                // PROPERTIES
-                // ok Name
-                // - Description
-                // ok Created Date
-                // - Due Date
-                // - Last Updated Date
-                // - Status [o]
-                // - Notes [o]
-                // - Custom image [o]
-                // - Quick-access list of contained tasks[o]
+                // PROPERTIES                                   | Sidebar?  | Card?     | Details?
+                // ok Name                                      | Y         | Y         | Y
+                // - Description                                | (clipped) | (short)   | Y
+                // ok Created Date                              | N         | N         | Y
+                // - Due Date                                   | N         | Y         | Y
+                // - Last Updated Date                          | N         | N         | Y
+                // - Status [o]                                 | Y         | Y         | Y
+                // - Priority                                   | N         | Y         | Y
+                // - Notes [o]                                  | N         | N         | Y 
+                // - Quick-access list of contained tasks[o]    | N         | Y         | Y
 
                 // METHODS
                 // - Create project (constructor)

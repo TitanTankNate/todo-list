@@ -64,7 +64,7 @@ function createTextElement(elementType, elementClass, elementID, elementTextCont
 
 // FUNCTION:    createButtonElement()
 // DESCRIPTION: <>
-function createButtonElement(elementClass, elementId, elementTextContent, elementParentSelector) {
+function createButtonElement(elementClass, elementID, elementTextContent, elementParentSelector) {
     // Select parent element
     const parentElement = document.querySelector(elementParentSelector);
 
@@ -81,7 +81,7 @@ function createButtonElement(elementClass, elementId, elementTextContent, elemen
     };
     
     // Assign ID
-    elemToCreate.id = elementId;
+    elemToCreate.id = elementID;
     
     // Edit button text
     elemToCreate.textContent = elementTextContent;
@@ -114,6 +114,41 @@ function createImageElement(imgImportVar, elementClass, elementID, elementAltTex
 
 
 
+// FUNCTION:    createListElement()
+// DESCRIPTION  <>
+function createListElement(elementClass, elementID, listType, listArray, elementParentSelector) {
+    // Select parent element
+    const parentElement = document.querySelector(elementParentSelector);
+
+    // Create list child element
+    const listToCreate = document.createElement(listType);
+    
+    // Assign class(es)
+    if (Array.isArray(elementClass)) {
+        elementClass.forEach(element => {
+            listToCreate.classList.add(element);
+        });
+    } else {
+        listToCreate.classList.add(elementClass);        
+    };
+    
+    // Assign ID
+    listToCreate.id = elementID;
+
+    // Append child element to parent
+    parentElement.appendChild(listToCreate);
+
+    // Create list item elements
+    listArray.forEach((listItem) => {
+        const itemToCreate = document.createElement("li");
+        itemToCreate.textContent = listItem;
+        listToCreate.appendChild(itemToCreate);
+    });
+
+
+}
+
+
 
 
 // EXPORTS ------------------------------------------------------------
@@ -121,5 +156,6 @@ export {
     createDivElement,
     createTextElement,
     createButtonElement,
-    createImageElement 
+    createImageElement,
+    createListElement 
 };
